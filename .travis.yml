@@ -2,25 +2,27 @@ language: python
 sudo: false      # Use container-based infrastructure
 
 env:
-  - LUA="lua 5.1"
-  - LUA="lua 5.2"
-  - LUA="lua 5.3"
-  - LUA="luajit 2.0"
-  - LUA="luajit 2.1"
+  - LUA_RUNTIME="luajit"
+    LUA_VERSION="2.0.3"
+  - LUA_RUNTIME="luajit"
+    LUA_VERSION="2.1"
 
 before_install:
   - pip install hererocks
-  - hererocks lua_install -r^ --$LUA
-  - export PATH=$PATH:$PWD/lua_install/bin # Add directory with all installed binaries to PATH
+  - hererocks lua_installations/$LUA_RUNTIME$LUA_VERSION/ --luarocks ^ --$LUA_RUNTIME $LUA_VERSION
+  - export PATH=$PATH:$PWD/lua_installations/$LUA_RUNTIME$LUA_VERSION/bin
 
-install:
+before_script::
   - luarocks install busted
-  - luarocks make # Install the rock, assuming there is a rockspec
-                  # in the root of the repository
+  - busted --version
 
 script:
   - busted --verbose --coverage --output=TAP
-  
+
+cache:
+  directories:
+  - $PWD/lua_installations
+
 notifications:
   email:
     recipients:
