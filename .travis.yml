@@ -22,7 +22,7 @@ before_script:
   - busted --version
 
 script:
-  - busted --verbose     #default utfTerminal
+  - busted --output=TAP  #default utfTerminal
 
 cache:
   directories:
