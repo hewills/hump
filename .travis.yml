@@ -21,7 +21,7 @@ before_script:
   - busted --version
 
 script:
-  - busted --verbose --output=TAP
+  - busted --output=TAP
 
 cache:
   directories:
