@@ -7,9 +7,9 @@ git:
 
 env:
   - LUA_RUNTIME="luajit"
-    LUA_VERSION="5.2"
+    LUA_VERSION="2.0.5"
   - LUA_RUNTIME="luajit"
-    LUA_VERSION="5.3"
+    LUA_VERSION="2.1"
 
 before_install:
   - pip install hererocks
