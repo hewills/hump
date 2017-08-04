@@ -21,14 +21,15 @@ before_script:
   - busted --version
 
 script:
-  - busted --output=TAP
+  - busted
 
 cache:
   directories:
   - $PWD/lua_installations
 
-notifications:
-  email:
-    recipients:
-      - hanathatsme@gmail.com
-    on_failure: always
+# Can add email notification here
+#notifications:
+  #email:
+    #recipients:
+      #- email@here.com
+    #on_failure: always
