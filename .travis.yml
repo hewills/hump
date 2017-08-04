@@ -1,5 +1,9 @@
-language: python
+dist: precise
 sudo: false      # Use container-based infrastructure
+language: python
+
+git:
+  depth: 4
 
 env:
   - LUA_RUNTIME="luajit"
@@ -12,7 +16,7 @@ before_install:
   - hererocks lua_installations/$LUA_RUNTIME$LUA_VERSION/ --luarocks ^ --$LUA_RUNTIME $LUA_VERSION
   - export PATH=$PATH:$PWD/lua_installations/$LUA_RUNTIME$LUA_VERSION/bin
 
-before_script::
+before_script:
   - luarocks install busted
   - busted --version
 
