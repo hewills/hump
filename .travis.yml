@@ -5,8 +5,9 @@ language: python
 git:
   depth: 4
 
+#Testing with lastest stable and beta versions of LUAJIT
 env:
-  - LUA_RUNTIME="luajit"  #Testing with lastest stable and beta versions of LUAJIT
+  - LUA_RUNTIME="luajit"
     LUA_VERSION="2.0.5"
   - LUA_RUNTIME="luajit"
     LUA_VERSION="2.1"
@@ -21,7 +22,7 @@ before_script:
   - busted --version
 
 script:
-  - busted --verbose   #default utfTerminal
+  - busted --verbose     #default utfTerminal
 
 cache:
   directories:
@@ -32,4 +33,4 @@ cache:
   #email:
     #recipients:
       #- email@here.com
-    #on_failure: always  #default always
+    #on_failure: always   #default always
