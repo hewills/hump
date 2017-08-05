@@ -5,12 +5,12 @@ language: python
 git:
   depth: 4
 
-#Testing with lastest stable and beta versions of LUAJIT
+#Testing with lastest stable version of LUAJIT
 env:
   - LUA_RUNTIME="luajit"
     LUA_VERSION="2.0.5"
-  - LUA_RUNTIME="luajit"
-    LUA_VERSION="2.1"
+  #- LUA_RUNTIME="luajit"
+  #  LUA_VERSION="2.1"
 
 before_install:
   - pip install hererocks
@@ -23,10 +23,6 @@ before_script:
 
 script:
   - busted --output=TAP  #default utfTerminal
-
-cache:
-  directories:
-  - $PWD/lua_installations
 
 # Can add email notification here
 #notifications:
