@@ -24,6 +24,8 @@ before_script:
 script:
   - busted --output=TAP  #default utfTerminal
 
+#Checks if Luajit and luarocks are already installed
+#Comment out to reinstall or if changing versions
 cache:
   directories:
     - $PWD/lua_installations
