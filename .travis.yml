@@ -24,6 +24,10 @@ before_script:
 script:
   - busted --output=TAP  #default utfTerminal
 
+cache:
+  directories:
+    - $PWD/lua_installations
+
 # Can add email notification here
 #notifications:
   #email:
